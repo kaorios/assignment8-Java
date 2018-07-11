@@ -56,4 +56,7 @@ public class Book implements Aggregate {
         this.category = category;
     }
 
+    public Page[] getPages() {
+        return pages;
+    }
 }
