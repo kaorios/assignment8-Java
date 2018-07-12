@@ -1,7 +1,6 @@
-import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Book implements Aggregate {
+public class Book<T> implements Iterable<T> {
     public static enum BookCategory {
         Science,
         History,

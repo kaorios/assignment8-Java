@@ -15,6 +15,13 @@ public class Page {
         this.pageNumber = pageNumber;
     }
 
+    public boolean isEvenPage() {
+        if (this.pageNumber%2 == 0) {
+            return true;
+        }
+        return false;
+    }
+
     public boolean isHasImage() {
         return hasImage;
     }

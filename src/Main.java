@@ -1,37 +1,29 @@
-import java.util.ArrayList;
-
 public class Main {
 
-    public static Book book1;
-    public static Book book2;
+    public static Book<Page> book;
 
     public static void main(String[] args) {
         createBooks();
 
-        ArrayList<Book> bookList = new ArrayList<>();
-        bookList.add(book1);
-        bookList.add(book2);
-
-
-        SearchBook searchBook = new SearchBook();
+        //Problem1
         System.out.println("The number of pages that have images and their page number is an even number.");
-        System.out.println(searchBook.search(book1));
+        SearchBook searchBook = new SearchBook();
+        System.out.println("SearchBook:");
+        System.out.println(searchBook.search(book));
 
-        System.out.println("Books:");
-        GenericSearch<Book> genericSearch = new GenericSearch<>();
-        System.out.println(genericSearch.search(bookList));
-
+        //Problem2
+        GenericSearch<Book, Page> genericSearch = new GenericSearch<>();
+        PagePredicate pagePredicate = new PagePredicate();
+        System.out.println("SearchBook:");
+        System.out.println(genericSearch.search(book, pagePredicate));
     }
 
     private static void createBooks() {
-        book1 = new Book("Java programing", Book.BookCategory.IT, 30);
-        book1.setImagePage(3);
-        book1.setImagePage(12);
-        book1.setImagePage(20);
-        book1.setImagePage(27);
-        book1.setImagePage(28);
-
-        book2 = new Book("C programing", Book.BookCategory.IT, 20);
-
+        book = new Book<>("Java programing", Book.BookCategory.IT, 30);
+        book.setImagePage(3);
+        book.setImagePage(12);
+        book.setImagePage(20);
+        book.setImagePage(27);
+        book.setImagePage(28);
     }
 }
